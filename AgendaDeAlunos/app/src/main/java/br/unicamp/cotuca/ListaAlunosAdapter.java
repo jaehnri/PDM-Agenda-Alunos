@@ -23,22 +23,21 @@ public class ListaAlunosAdapter extends ArrayAdapter<Aluno> {
         this.listaDeAlunos = listaDeAlunos;
     }
 
-
     public View getView(int position, View view, ViewGroup parent){
 
         Aluno aluno = listaDeAlunos.get(position);
 
         if(view == null)
-            view = LayoutInflater.from(context).inflate(R.layout.lista_alunos,null);
+            view = LayoutInflater.from(context).inflate(R.layout.lista_itens,null);
 
         TextView textViewNome = view.findViewById(R.id.text_view_nome);
         textViewNome.setText(aluno.getNome());
 
         TextView textViewTelefone = view.findViewById(R.id.text_view_telefone);
-        textViewTelefone.setText(aluno.getTelefone());
+        textViewNome.setText(aluno.getTelefone());
 
         TextView textViewEmail = view.findViewById(R.id.text_view_email);
-        textViewEmail.setText(aluno.getEmail());
+        textViewNome.setText(aluno.getEmail());
 
         return view;
 

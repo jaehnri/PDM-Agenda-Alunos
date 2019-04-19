@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = (ListView)findViewById(R.id.lsAgenda);
+        listView = (ListView)findViewById(R.id.lvAgenda);
         alunos = new ArrayList<>();
 
         fabInclusao = (FloatingActionButton)findViewById(R.id.fabInclusao);
