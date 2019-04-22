@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Inclusao extends AppCompatActivity {
 
@@ -37,18 +39,29 @@ public class Inclusao extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
+                if (edNome.getText().toString().matches("") || edEmail.getText().toString().matches(""))
+                {
+                    Toast.makeText(getApplicationContext(),"Preencha todos os campos!!"  , Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                String parNome     =  edNome.getText().toString();
-                String parTelefone = edTelefone.getText().toString();
-                String parEmail    = edEmail.getText().toString();
+                if(TextUtils.isEmpty(edTelefone.getText().toString().trim()))
+                {
+                    Toast.makeText(getApplicationContext(),"Preencha o seu telefone!!"  , Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                    Intent resultIntent = new Intent();
 
-                resultIntent.putExtra("nome", parNome);
-                resultIntent.putExtra("telefone", parTelefone);
-                resultIntent.putExtra("email", parEmail);
+                    String parNome = edNome.getText().toString();
+                    String parTelefone = edTelefone.getText().toString();
+                    String parEmail = edEmail.getText().toString();
 
-                setResult(MainActivity.RESULT_OK, resultIntent);
-                finish();
+                    resultIntent.putExtra("nome", parNome);
+                    resultIntent.putExtra("telefone", parTelefone);
+                    resultIntent.putExtra("email", parEmail);
+
+                    setResult(MainActivity.RESULT_OK, resultIntent);
+                    finish();
             }
         });
     }

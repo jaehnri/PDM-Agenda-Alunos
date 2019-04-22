@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
                     adicionarAluno(nomeRecebido, telefoneRecebido, emailRecebido);
 
-                    ArrayAdapter<Aluno> alunosAdapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
+                    ListaAlunosAdapter alunosAdapter = new ListaAlunosAdapter(this, alunos);
+                   // ArrayAdapter<Aluno> alunosAdapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
                     listView.setAdapter(alunosAdapter);
                     break;
                 }

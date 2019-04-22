@@ -17,7 +17,7 @@ public class ListaAlunosAdapter extends ArrayAdapter<Aluno> {
     private Context context;
     private ArrayList<Aluno> listaDeAlunos = null;
 
-    public ListaAlunosAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Aluno> listaDeAlunos) {
+    public ListaAlunosAdapter(@NonNull Context context, @NonNull ArrayList<Aluno> listaDeAlunos) {
         super(context, 0, listaDeAlunos);
         this.context = context;
         this.listaDeAlunos = listaDeAlunos;
@@ -34,10 +34,10 @@ public class ListaAlunosAdapter extends ArrayAdapter<Aluno> {
         textViewNome.setText(aluno.getNome());
 
         TextView textViewTelefone = view.findViewById(R.id.text_view_telefone);
-        textViewNome.setText(aluno.getTelefone());
+        textViewTelefone.setText(aluno.getTelefone());
 
         TextView textViewEmail = view.findViewById(R.id.text_view_email);
-        textViewNome.setText(aluno.getEmail());
+        textViewEmail.setText(aluno.getEmail());
 
         return view;
 
